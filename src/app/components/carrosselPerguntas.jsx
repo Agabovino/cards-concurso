@@ -1,7 +1,7 @@
-// compoenente carrosselPerguntas.jsx
 import { useState, useEffect } from 'react';
 import CardPergunta from './CardPergunta';
 import FloatingJSONEditor from './FloatingJSONEditor';
+import styles from '@/styles/CarrosselPerguntas.module.css'; // Importe o módulo CSS
 
 // Função para determinar o próximo nível de dificuldade
 const getNextNivel = (currentNivel) => {
@@ -59,6 +59,12 @@ const CarrosselPerguntas = ({ perguntas }) => {
     setShowResposta(!showResposta);
   };
 
+  // Função para resetar o placar
+  const resetPlacar = () => {
+    setAcertos(0);
+    setErros(0);
+  };
+
   // Verifica se há perguntas e um card válido antes de renderizar
   const currentCard = perguntasAtualizadas[currentIndex] || {};
   if (perguntasAtualizadas.length === 0 || !currentCard.pergunta) {
@@ -66,17 +72,20 @@ const CarrosselPerguntas = ({ perguntas }) => {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center m-20">
+    <div className={styles.carrosselContainer}>
       {/* Header com contadores */}
-      <div className="mb-6 p-4 bg-gray-100 w-full max-w-md rounded-lg text-center shadow-md">
-        <h2 className="font-bold text-lg">Progresso</h2>
+      <div className={styles.header}>
+        <h2 className={styles.headerTitle}>Progresso</h2>
         <p>Total de Perguntas: {perguntasAtualizadas.length}</p>
         <p>Perguntas Respondidas: {currentIndex}</p>
         <p>Perguntas Restantes: {perguntasAtualizadas.length - currentIndex}</p>
-        <div className="mt-4">
-          <h3 className="font-bold text-lg">Placar</h3>
+        <div className={styles.scoreboard}>
+          <h3 className={styles.scoreboardTitle}>Placar</h3>
           <p>Acertos: {acertos}</p>
           <p>Erros: {erros}</p>
+          <button className={styles.resetButton} onClick={resetPlacar}>
+            Resetar Placar
+          </button>
         </div>
       </div>
 
