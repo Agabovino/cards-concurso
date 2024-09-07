@@ -1,3 +1,4 @@
+// compoenente carrosselPerguntas.jsx
 import { useState, useEffect } from 'react';
 import CardPergunta from './CardPergunta';
 import FloatingJSONEditor from './FloatingJSONEditor';

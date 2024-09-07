@@ -5,11 +5,13 @@ import styles from '@/styles/CardPergunta.module.css'; // Verifique o caminho e 
 const CardPergunta = ({ pergunta, resposta, showResposta, onToggleResposta, onAcerto, onErro }) => {
   return (
     <div className={styles.cardPergunta}>
-      <p>{pergunta}</p>
-      {showResposta && <p>{resposta}</p>}
-      <button onClick={onToggleResposta}>{showResposta ? 'Ocultar Resposta' : 'Mostrar Resposta'}</button>
-      <button onClick={onAcerto}>Acertou</button>
-      <button onClick={onErro}>Errou</button>
+      <p className={styles.pergunta}>{pergunta}</p>
+      {showResposta && <p className={styles.resposta}>{resposta}</p>}
+      <button className={styles.botaoMostrarRespostaMostrar} onClick={onToggleResposta}>
+        {showResposta ? 'Ocultar Resposta' : 'Mostrar Resposta'}
+      </button>
+      <button className={styles.botaoAcertou} onClick={onAcerto}>Acertou</button>
+      <button className={styles.botaoErro} onClick={onErro}>Errou</button>
     </div>
   );
 };

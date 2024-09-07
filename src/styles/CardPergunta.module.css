@@ -1,3 +1,4 @@
+/* CardPergunta.module.css */
 .cardPergunta {
   display: flex;
   flex-direction: column;
@@ -14,21 +15,20 @@
   background-color: #fff;
 }
 
-.cardPergunta p {
+.pergunta {
+  font-size: 1.5em; /* Tamanho fixo da fonte */
+  font-weight: bold; /* Peso fixo da fonte */
+  color: #000; /* Cor fixa da fonte */
   margin: 16px;
 }
 
-.cardPergunta p:first-of-type {
-  font-size: 1.5em;
-  font-weight: bold;
-}
-
-.cardPergunta p:last-of-type {
+.resposta {
+  text-align: center;
   font-size: 1em;
   color: #757575;
 }
 
-.cardPergunta button {
+.botaoMostrarResposta {
   display: block;
   width: 90%;
   padding: 10px;
@@ -41,21 +41,36 @@
   cursor: pointer;
 }
 
-.cardPergunta button:hover {
+.botaoMostrarResposta:hover {
   background-color: #555;
 }
 
-.cardPergunta button:nth-of-type(1) {
+.botaoMostrarRespostaMostrar {
+  width: 70%;
+  border-radius: 0.3rem;
+  margin: 0.5rem;
+  padding: 0.5rem;
   background-color: #008cba;
   color: white;
+  font-weight: bold;
 }
 
-.cardPergunta button:nth-of-type(2) {
+.botaoAcertou {
+  width: 70%;
+  border-radius: 0.3rem;
+  margin: 0.5rem;
+  padding: 0.5rem;
   background-color: #00ff40;
   color: black;
+  font-weight: bold;
 }
 
-.cardPergunta button:nth-of-type(3) {
+.botaoErro {
+  width: 70%;
+  border-radius: 0.3rem;
+  margin: 0.5rem;
+  padding: 0.5rem;
   background-color: #ff4800;
   color: white;
+  font-weight: bold;
 }
