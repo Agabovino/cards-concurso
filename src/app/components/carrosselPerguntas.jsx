@@ -1,28 +1,32 @@
 import { useState, useEffect } from 'react';
+import axios from 'axios';
 import CardPergunta from './CardPergunta';
 import FloatingJSONEditor from './FloatingJSONEditor';
 import styles from '@/styles/CarrosselPerguntas.module.css'; // Importe o módulo CSS
 
-// Função para determinar o próximo nível de dificuldade
-const getNextNivel = (currentNivel) => {
-  const niveis = ["facil", "medio", "dificil", "muito-dificil", "extremo"];
-  const index = niveis.indexOf(currentNivel);
-  return index < niveis.length - 1 ? niveis[index + 1] : currentNivel;
-};
-
-const CarrosselPerguntas = ({ perguntas }) => {
+const CarrosselPerguntas = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showResposta, setShowResposta] = useState(false);
-  const [perguntasAtualizadas, setPerguntasAtualizadas] = useState(perguntas);
+  const [perguntasAtualizadas, setPerguntasAtualizadas] = useState([]);
   const [acertos, setAcertos] = useState(0);
   const [erros, setErros] = useState(0);
 
-  useEffect(() => {
-    // Atualizar o estado local com perguntas quando o componente for montado
-    setPerguntasAtualizadas(perguntas);
-  }, [perguntas]);
+  // Estado para o formulário de adicionar nova pergunta
+  const [novaPergunta, setNovaPergunta] = useState({ pergunta: '', resposta: '', nivel: 'facil' });
 
-  // Função para atualizar o nível de dificuldade
+  useEffect(() => {
+    const fetchPerguntas = async () => {
+      try {
+        const response = await axios.get('http://localhost:3001/api/perguntas'); // Atualizado para '/api/perguntas'
+        setPerguntasAtualizadas(response.data);
+      } catch (error) {
+        console.error('Erro ao buscar dados:', error);
+      }
+    };
+
+    fetchPerguntas();
+  }, []);
+
   const updateNivel = (index, acertou) => {
     setPerguntasAtualizadas((prevPerguntas) => {
       const novasPerguntas = [...prevPerguntas];
@@ -59,13 +63,36 @@ const CarrosselPerguntas = ({ perguntas }) => {
     setShowResposta(!showResposta);
   };
 
-  // Função para resetar o placar
   const resetPlacar = () => {
     setAcertos(0);
     setErros(0);
   };
 
-  // Verifica se há perguntas e um card válido antes de renderizar
+  // Função para adicionar nova pergunta
+  const addPergunta = async () => {
+    try {
+      await axios.post('http://localhost:3001/api/perguntas', novaPergunta); // Atualizado para '/api/perguntas'
+      // Recarregar as perguntas após adicionar uma nova
+      const response = await axios.get('http://localhost:3001/api/perguntas'); // Atualizado para '/api/perguntas'
+      setPerguntasAtualizadas(response.data);
+      setNovaPergunta({ pergunta: '', resposta: '', nivel: 'facil' }); // Limpar o formulário
+    } catch (error) {
+      console.error('Erro ao adicionar pergunta:', error);
+    }
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setNovaPergunta((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const getNextNivel = (nivelAtual) => {
+    const niveis = ["facil", "medio", "dificil", "muito-dificil", "extremo"];
+    const indexAtual = niveis.indexOf(nivelAtual);
+    const proximoIndex = (indexAtual + 1) % niveis.length; // Retorna ao primeiro nível se alcançar o final
+    return niveis[proximoIndex];
+  };
+
   const currentCard = perguntasAtualizadas[currentIndex] || {};
   if (perguntasAtualizadas.length === 0 || !currentCard.pergunta) {
     return <p>Carregando...</p>;
@@ -73,7 +100,6 @@ const CarrosselPerguntas = ({ perguntas }) => {
 
   return (
     <div className={styles.carrosselContainer}>
-      {/* Header com contadores */}
       <div className={styles.header}>
         <h2 className={styles.headerTitle}>Progresso</h2>
         <p>Total de Perguntas: {perguntasAtualizadas.length}</p>
@@ -89,7 +115,6 @@ const CarrosselPerguntas = ({ perguntas }) => {
         </div>
       </div>
 
-      {/* Card de Pergunta */}
       <CardPergunta
         key={currentCard.id} // Use o id como key
         pergunta={currentCard.pergunta}
@@ -100,8 +125,38 @@ const CarrosselPerguntas = ({ perguntas }) => {
         onErro={handleErro}
       />
 
-      {/* Adiciona o editor de JSON flutuante */}
       <FloatingJSONEditor perguntasAtualizadas={perguntasAtualizadas} />
+
+      {/* Formulário para adicionar nova pergunta */}
+      <div className={styles.addPerguntaForm}>
+        <h3>Adicionar Nova Pergunta</h3>
+        <input
+          type="text"
+          name="pergunta"
+          value={novaPergunta.pergunta}
+          onChange={handleChange}
+          placeholder="Pergunta"
+        />
+        <input
+          type="text"
+          name="resposta"
+          value={novaPergunta.resposta}
+          onChange={handleChange}
+          placeholder="Resposta"
+        />
+        <select
+          name="nivel"
+          value={novaPergunta.nivel}
+          onChange={handleChange}
+        >
+          <option value="facil">Fácil</option>
+          <option value="medio">Médio</option>
+          <option value="dificil">Difícil</option>
+          <option value="muito-dificil">Muito Difícil</option>
+          <option value="extremo">Extremo</option>
+        </select>
+        <button onClick={addPergunta}>Adicionar Pergunta</button>
+      </div>
     </div>
   );
 };

@@ -1,74 +1,74 @@
 [
-    {
-      "id": 1,
-      "pergunta": "O que é Bryophyta sensu lato?",
-      "resposta": "Bryophyta sensu lato é uma superdivisão das plantas embriófitos não vasculares.",
-      "nivel": "facil"
-    },
-    {
-      "id": 2,
-      "pergunta": "De quais organismos as briófitas descendem?",
-      "resposta": "As briófitas descendem das algas verdes.",
-      "nivel": "medio"
-    },
-    {
-      "id": 3,
-      "pergunta": "Quando as briófitas evoluíram no ambiente terrestre?",
-      "resposta": "As briófitas evoluíram no ambiente terrestre durante o período geológico Siluriano, há 420 milhões de anos.",
-      "nivel": "dificil"
-    },
-    {
-      "id": 4,
-      "pergunta": "Quais são as principais características das briófitas?",
-      "resposta": "As briófitas são plantas sem raízes verdadeiras, caule ou folhas e não possuem sistema vascular, desenvolvendo-se em locais úmidos e protegidos da luz direta do sol.",
-      "nivel": "medio"
-    },
-    {
-      "id": 5,
-      "pergunta": "O que são gametângios e qual sua função nas briófitas?",
-      "resposta": "Gametângios são órgãos reprodutivos das briófitas, sendo anterídios masculinos e arquegônios femininos, onde ocorrem a produção de gametas.",
-      "nivel": "dificil"
-    },
-    {
-      "id": 6,
-      "pergunta": "Quais são os três tipos de briófitas?",
-      "resposta": "Os três tipos de briófitas são musgos, hepáticas e antóceros.",
-      "nivel": "facil"
-    },
-    {
-      "id": 7,
-      "pergunta": "Como as briófitas se reproduzem assexuadamente?",
-      "resposta": "As briófitas se reproduzem assexuadamente por fragmentação ou pela produção de gemas, que são corpos multicelulares que dão origem a novos gametófitos.",
-      "nivel": "dificil"
-    },
-    {
-      "id": 8,
-      "pergunta": "Qual é a importância ecológica das briófitas?",
-      "resposta": "As briófitas reduzem a erosão dos solos, servem de reservatórios de água e nutrientes, abrigam microfauna, e desempenham papel importante no ciclo global do carbono.",
-      "nivel": "medio"
-    },
-    {
-      "id": 9,
-      "pergunta": "Quais são as características dos esporófitos das hepáticas, musgos e antóceros?",
-      "resposta": "Os esporófitos das hepáticas não possuem clorofila e têm crescimento limitado; nos musgos, possuem clorofila e crescimento limitado; nos antóceros, o crescimento é ilimitado.",
-      "nivel": "dificil"
-    },
-    {
-      "id": 10,
-      "pergunta": "Qual é a diferença entre o ciclo de vida das briófitas e das plantas vasculares?",
-      "resposta": "Nas briófitas, o gametófito é maior e de vida livre, enquanto nas plantas vasculares, o esporófito é maior e de vida livre.",
-      "nivel": "extremo"
-    },
-    {
-      "id": 11,
-      "pergunta": "Como a água é essencial para a reprodução das briófitas?",
-      "resposta": "A água é necessária para que os anterozoides biflagelados nadem até a oosfera para a fecundação das briófitas.",
-      "nivel": "dificil"
-    },
-    {
-      "id": 12,
-      "pergunta": "Quais são as três divisões das briófitas e suas características?",
-      "resposta": "As três divisões são Marchantiophyta (hepáticas), Anthocerotophyta (antóceros) e Bryophyta sensu stricto (musgos verdadeiros), cada uma com características distintas de esporófitos e gametófitos.",
-      "nivel": "extremo"
-    }
-  ]
+  {
+    "id": 1,
+    "pergunta": "O que é Bryophyta sensu lato?",
+    "resposta": "Bryophyta sensu lato é uma superdivisão das plantas embriófitos não vasculares.",
+    "nivel": "facil"
+  },
+  {
+    "id": 2,
+    "pergunta": "De quais organismos as briófitas descendem?",
+    "resposta": "As briófitas descendem das algas verdes.",
+    "nivel": "medio"
+  },
+  {
+    "id": 3,
+    "pergunta": "Quando as briófitas evoluíram no ambiente terrestre?",
+    "resposta": "As briófitas evoluíram no ambiente terrestre durante o período geológico Siluriano, há 420 milhões de anos.",
+    "nivel": "dificil"
+  },
+  {
+    "id": 4,
+    "pergunta": "Quais são as principais características das briófitas?",
+    "resposta": "As briófitas são plantas sem raízes verdadeiras, caule ou folhas e não possuem sistema vascular, desenvolvendo-se em locais úmidos e protegidos da luz direta do sol.",
+    "nivel": "medio"
+  },
+  {
+    "id": 5,
+    "pergunta": "O que são gametângios e qual sua função nas briófitas?",
+    "resposta": "Gametângios são órgãos reprodutivos das briófitas, sendo anterídios masculinos e arquegônios femininos, onde ocorrem a produção de gametas.",
+    "nivel": "dificil"
+  },
+  {
+    "id": 6,
+    "pergunta": "Quais são os três tipos de briófitas?",
+    "resposta": "Os três tipos de briófitas são musgos, hepáticas e antóceros.",
+    "nivel": "facil"
+  },
+  {
+    "id": 7,
+    "pergunta": "Como as briófitas se reproduzem assexuadamente?",
+    "resposta": "As briófitas se reproduzem assexuadamente por fragmentação ou pela produção de gemas, que são corpos multicelulares que dão origem a novos gametófitos.",
+    "nivel": "dificil"
+  },
+  {
+    "id": 8,
+    "pergunta": "Qual é a importância ecológica das briófitas?",
+    "resposta": "As briófitas reduzem a erosão dos solos, servem de reservatórios de água e nutrientes, abrigam microfauna, e desempenham papel importante no ciclo global do carbono.",
+    "nivel": "medio"
+  },
+  {
+    "id": 9,
+    "pergunta": "Quais são as características dos esporófitos das hepáticas, musgos e antóceros?",
+    "resposta": "Os esporófitos das hepáticas não possuem clorofila e têm crescimento limitado; nos musgos, possuem clorofila e crescimento limitado; nos antóceros, o crescimento é ilimitado.",
+    "nivel": "dificil"
+  },
+  {
+    "id": 10,
+    "pergunta": "Qual é a diferença entre o ciclo de vida das briófitas e das plantas vasculares?",
+    "resposta": "Nas briófitas, o gametófito é maior e de vida livre, enquanto nas plantas vasculares, o esporófito é maior e de vida livre.",
+    "nivel": "extremo"
+  },
+  {
+    "id": 11,
+    "pergunta": "Como a água é essencial para a reprodução das briófitas?",
+    "resposta": "A água é necessária para que os anterozoides biflagelados nadem até a oosfera para a fecundação das briófitas.",
+    "nivel": "dificil"
+  },
+  {
+    "id": 12,
+    "pergunta": "Quais são as três divisões das briófitas e suas características?",
+    "resposta": "As três divisões são Marchantiophyta (hepáticas), Anthocerotophyta (antóceros) e Bryophyta sensu stricto (musgos verdadeiros), cada uma com características distintas de esporófitos e gametófitos.",
+    "nivel": "extremo"
+  }
+]

@@ -58,3 +58,27 @@
 .resetButton:hover {
   background-color: #e60000;
 }
+
+.addPerguntaForm {
+  margin-top: 20px;
+}
+
+.addPerguntaForm input,
+.addPerguntaForm select {
+  display: block;
+  margin-bottom: 10px;
+  padding: 8px;
+  width: 100%;
+}
+
+.addPerguntaForm button {
+  padding: 10px 20px;
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.addPerguntaForm button:hover {
+  background-color: #005bb5;
+}
