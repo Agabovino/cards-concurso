@@ -1,0 +1,39 @@
+.header {
+    background-color: lightseagreen;
+    box-shadow: 4px 2px 14px 1px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000; 
+    padding: 10px 20px; 
+    box-sizing: border-box; 
+}
+
+.logo {
+    font-size: 2rem;
+    color: white;
+    font-weight: bold;
+    margin-left: 10px; 
+}
+
+.headerContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+}
+
+.headerContentLeft {
+    display: flex;
+    align-items: center;
+}
+
+.headerContentRight {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: white;
+    font-weight: bold;
+    padding-right: 2rem;
+}

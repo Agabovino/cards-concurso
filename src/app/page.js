@@ -3,6 +3,7 @@
 
 import { useState, useEffect } from 'react';
 import CarrosselPerguntas from './components/CarrosselPerguntas';
+import Header from './components/Header'
 
 export default function Home() {
   const [perguntas, setPerguntas] = useState([]);
@@ -21,7 +22,8 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center m-20 space-y-4">
+    <div className="flex flex-col items-center justify-center">
+      <Header/>
       <CarrosselPerguntas perguntas={perguntas} />
     </div>
   );

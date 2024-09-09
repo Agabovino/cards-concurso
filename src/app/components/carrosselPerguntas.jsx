@@ -1,8 +1,10 @@
+// src/app/components/CarrosselPerguntas.jsx
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import CardPergunta from './CardPergunta';
 import FloatingJSONEditor from './FloatingJSONEditor';
-import styles from '@/styles/CarrosselPerguntas.module.css'; // Importe o módulo CSS
+import PlacarPerguntas from './PlacarPerguntas'; // Importando o novo componente
+import styles from '@/styles/CarrosselPerguntas.module.css';
 
 const CarrosselPerguntas = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -11,13 +13,12 @@ const CarrosselPerguntas = () => {
   const [acertos, setAcertos] = useState(0);
   const [erros, setErros] = useState(0);
 
-  // Estado para o formulário de adicionar nova pergunta
   const [novaPergunta, setNovaPergunta] = useState({ pergunta: '', resposta: '', nivel: 'facil' });
 
   useEffect(() => {
     const fetchPerguntas = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/api/perguntas'); // Atualizado para '/api/perguntas'
+        const response = await axios.get('http://localhost:3001/api/perguntas');
         setPerguntasAtualizadas(response.data);
       } catch (error) {
         console.error('Erro ao buscar dados:', error);
@@ -31,7 +32,7 @@ const CarrosselPerguntas = () => {
     setPerguntasAtualizadas((prevPerguntas) => {
       const novasPerguntas = [...prevPerguntas];
       if (acertou) {
-        novasPerguntas[index].nivel = "facil"; // Volta para o nível mais fácil
+        novasPerguntas[index].nivel = "facil";
       } else {
         novasPerguntas[index].nivel = getNextNivel(novasPerguntas[index].nivel);
       }
@@ -41,13 +42,13 @@ const CarrosselPerguntas = () => {
 
   const handleAcerto = () => {
     updateNivel(currentIndex, true);
-    setAcertos(acertos + 1); // Atualiza o placar de acertos
+    setAcertos(acertos + 1);
     moveToNextCard();
   };
 
   const handleErro = () => {
     updateNivel(currentIndex, false);
-    setErros(erros + 1); // Atualiza o placar de erros
+    setErros(erros + 1);
     moveToNextCard();
   };
 
@@ -55,7 +56,7 @@ const CarrosselPerguntas = () => {
     setShowResposta(false);
     setCurrentIndex((prevIndex) => {
       const nextIndex = prevIndex + 1;
-      return nextIndex < perguntasAtualizadas.length ? nextIndex : 0; // Reinicia o índice se chegar ao final
+      return nextIndex < perguntasAtualizadas.length ? nextIndex : 0;
     });
   };
 
@@ -68,14 +69,12 @@ const CarrosselPerguntas = () => {
     setErros(0);
   };
 
-  // Função para adicionar nova pergunta
   const addPergunta = async () => {
     try {
-      await axios.post('http://localhost:3001/api/perguntas', novaPergunta); // Atualizado para '/api/perguntas'
-      // Recarregar as perguntas após adicionar uma nova
-      const response = await axios.get('http://localhost:3001/api/perguntas'); // Atualizado para '/api/perguntas'
+      await axios.post('http://localhost:3001/api/perguntas', novaPergunta);
+      const response = await axios.get('http://localhost:3001/api/perguntas');
       setPerguntasAtualizadas(response.data);
-      setNovaPergunta({ pergunta: '', resposta: '', nivel: 'facil' }); // Limpar o formulário
+      setNovaPergunta({ pergunta: '', resposta: '', nivel: 'facil' });
     } catch (error) {
       console.error('Erro ao adicionar pergunta:', error);
     }
@@ -89,7 +88,7 @@ const CarrosselPerguntas = () => {
   const getNextNivel = (nivelAtual) => {
     const niveis = ["facil", "medio", "dificil", "muito-dificil", "extremo"];
     const indexAtual = niveis.indexOf(nivelAtual);
-    const proximoIndex = (indexAtual + 1) % niveis.length; // Retorna ao primeiro nível se alcançar o final
+    const proximoIndex = (indexAtual + 1) % niveis.length;
     return niveis[proximoIndex];
   };
 
@@ -105,18 +104,13 @@ const CarrosselPerguntas = () => {
         <p>Total de Perguntas: {perguntasAtualizadas.length}</p>
         <p>Perguntas Respondidas: {currentIndex}</p>
         <p>Perguntas Restantes: {perguntasAtualizadas.length - currentIndex}</p>
-        <div className={styles.scoreboard}>
-          <h3 className={styles.scoreboardTitle}>Placar</h3>
-          <p>Acertos: {acertos}</p>
-          <p>Erros: {erros}</p>
-          <button className={styles.resetButton} onClick={resetPlacar}>
-            Resetar Placar
-          </button>
-        </div>
+        
+        {/* Usando o novo componente PlacarPerguntas */}
+        <PlacarPerguntas acertos={acertos} erros={erros} resetPlacar={resetPlacar} />
       </div>
 
       <CardPergunta
-        key={currentCard.id} // Use o id como key
+        key={currentCard.id}
         pergunta={currentCard.pergunta}
         resposta={currentCard.resposta}
         showResposta={showResposta}
@@ -127,7 +121,6 @@ const CarrosselPerguntas = () => {
 
       <FloatingJSONEditor perguntasAtualizadas={perguntasAtualizadas} />
 
-      {/* Formulário para adicionar nova pergunta */}
       <div className={styles.addPerguntaForm}>
         <h3>Adicionar Nova Pergunta</h3>
         <input

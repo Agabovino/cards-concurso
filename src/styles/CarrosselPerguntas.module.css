@@ -28,37 +28,6 @@
   margin: 8px 0;
 }
 
-.scoreboard {
-  margin-top: 16px;
-}
-
-.scoreboardTitle {
-  font-weight: bold;
-  font-size: 20px;
-}
-
-.scoreboardInfo {
-  margin: 4px 0;
-}
-
-.resetButton {
-  display: inline-block;
-  margin: 1rem;
-  padding: 10px;
-  font-size: 1em;
-  font-weight: bold;
-  color: #fff;
-  background-color: #ff4d4d;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.resetButton:hover {
-  background-color: #e60000;
-}
-
 .addPerguntaForm {
   margin-top: 20px;
 }

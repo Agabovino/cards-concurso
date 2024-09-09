@@ -1,3 +1,4 @@
+//src\app\components\FloatingJSONEditor.jsx
 import { useState } from 'react';
 import styles from '@/styles/FloatingJSONEditor.module.css';
 
