@@ -1,26 +1,80 @@
-/* AdicionarPergunta.module.css */
-
-.addPerguntaForm {
-    margin-top: 20px;
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
   }
   
-  .addPerguntaForm input,
-  .addPerguntaForm select {
-    display: block;
-    margin-bottom: 10px;
-    padding: 8px;
+  .modalContent {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
     width: 100%;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
   
-  .addPerguntaForm button {
-    padding: 10px 20px;
-    background-color: #0070f3;
+  .closeButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #ff4d4d;
     color: white;
     border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
     cursor: pointer;
   }
+
+  .closeButton:hover{
+    background-color: #ad3333;
+  }
   
-  .addPerguntaForm button:hover {
-    background-color: #005bb5;
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .tittle{
+    font-weight: bold;
+    text-align: center;
+    margin: 5%;
+  }
+
+  .perguntaTextarea{
+    border: 1px solid grey;
+
+  }
+
+  .respostaTextarea{
+    border: 1px solid grey;
+  }
+  
+  .inputGroup {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .addButton {
+    background-color: lightseagreen;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+
+  .addButton:hover{
+    background-color: rgb(26, 122, 118);
   }
   

@@ -1,41 +1,53 @@
-/*header.modules.css*/
-
 .header {
     background-color: lightseagreen;
     box-shadow: 4px 2px 14px 1px rgba(0, 0, 0, 0.2);
     width: 100%;
-    
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1000; 
-    padding: 10px 20px; 
-    box-sizing: border-box; 
-}
-
-.logo {
+    z-index: 1000;
+    padding: 10px 20px;
+    box-sizing: border-box;
+  }
+  
+  .logo {
     font-size: 2rem;
     color: white;
     font-weight: bold;
-    margin-left: 10px; 
-}
-
-.headerContent {
+    margin-left: 10px;
+  }
+  
+  .headerContent {
     display: flex;
     justify-content: space-between;
-    align-items: center; 
-}
-
-.headerContentLeft {
+    align-items: center;
+  }
+  
+  .headerContentLeft {
     display: flex;
     align-items: center;
-}
-
-.headerContentRight {
+  }
+  
+  .headerContentRight {
     display: flex;
     align-items: center;
     gap: 1rem;
     color: white;
     font-weight: bold;
     padding-right: 2rem;
-}
+  }
+  
+  .addCardButton {
+    background-color: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: underline;
+    font-size: 1rem;
+  }
+  
+  .addCardButton:hover {
+    color: #d1e1e1; /* Cor do texto quando o mouse passa sobre o botão */
+  }
+  

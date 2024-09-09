@@ -6,6 +6,7 @@
     border-radius: 8px;
     padding: 20px;
     margin: 20px 0;
+    width: 25rem;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
@@ -14,6 +15,7 @@
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 15px;
+    margin-top: 30px;
     color: #333;
   }
   
@@ -24,11 +26,12 @@
   }
   
   .resetButton {
-    background-color: #007bff;
+    background-color: lightseagreen;
     color: white;
     border: none;
     padding: 10px 15px;
     font-size: 16px;
+    font-weight: bold;
     border-radius: 5px;
     cursor: pointer;
     margin-top: 15px;
@@ -36,6 +39,6 @@
   }
   
   .resetButton:hover {
-    background-color: #0056b3;
+    background-color: rgb(26, 133, 127);
   }
   

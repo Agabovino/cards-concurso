@@ -8,8 +8,8 @@
   align-items: center;
   justify-content: center;
   margin: 20px;
+  margin-top: 10rem;
   padding: 20px;
-  border: 1px solid #ddd;
   border-radius: 8px;
 }
 
@@ -23,6 +23,3 @@
   font-weight: bold;
 }
 
-/* Remove os estilos relacionados à adição de nova pergunta daqui */
-
-/* Estilos para o card de pergunta */

@@ -1,56 +1,59 @@
 import { useState } from 'react';
-import axios from 'axios';
-import styles from '@/styles/AdicionarPergunta.module.css'; // Importe o CSS para este componente
+import styles from '@/styles/AdicionarPergunta.module.css';
 
-const AdicionarPergunta = ({ onPerguntaAdicionada }) => {
-  // Estado para o formulário de adicionar nova pergunta
-  const [novaPergunta, setNovaPergunta] = useState({ pergunta: '', resposta: '', nivel: 'facil' });
+const AdicionarPergunta = ({ isOpen, onClose, onAddPergunta }) => {
+  const [pergunta, setPergunta] = useState('');
+  const [resposta, setResposta] = useState('');
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setNovaPergunta((prev) => ({ ...prev, [name]: value }));
-  };
+  // Se o modal não estiver aberto, não renderiza nada
+  if (!isOpen) return null;
 
-  // Função para adicionar nova pergunta
-  const addPergunta = async () => {
-    try {
-      await axios.post('http://localhost:3001/api/perguntas', novaPergunta); // Atualizado para '/api/perguntas'
-      onPerguntaAdicionada(); // Chama a função de callback para recarregar as perguntas no CarrosselPerguntas
-      setNovaPergunta({ pergunta: '', resposta: '', nivel: 'facil' }); // Limpar o formulário
-    } catch (error) {
-      console.error('Erro ao adicionar pergunta:', error);
-    }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const novaPergunta = {
+      pergunta,
+      resposta,
+    };
+
+    onAddPergunta(novaPergunta);
+
+    // Limpar os campos após adicionar a pergunta
+    setPergunta('');
+    setResposta('');
   };
 
   return (
-    <div className={styles.addPerguntaForm}>
-      <h3>Adicionar Nova Pergunta</h3>
-      <input
-        type="text"
-        name="pergunta"
-        value={novaPergunta.pergunta}
-        onChange={handleChange}
-        placeholder="Pergunta"
-      />
-      <input
-        type="text"
-        name="resposta"
-        value={novaPergunta.resposta}
-        onChange={handleChange}
-        placeholder="Resposta"
-      />
-      <select
-        name="nivel"
-        value={novaPergunta.nivel}
-        onChange={handleChange}
-      >
-        <option value="facil">Fácil</option>
-        <option value="medio">Médio</option>
-        <option value="dificil">Difícil</option>
-        <option value="muito-dificil">Muito Difícil</option>
-        <option value="extremo">Extremo</option>
-      </select>
-      <button onClick={addPergunta}>Adicionar Pergunta</button>
+    <div className={styles.modalOverlay}>
+      <div className={styles.modalContent}>
+        <button className={styles.closeButton} onClick={onClose}>
+          ✕
+        </button>
+        <h2 className={styles.tittle}>Adicionar Nova Pergunta</h2>
+        <form onSubmit={handleSubmit} className={styles.form}>
+          <div className={styles.inputGroup}>
+            <label htmlFor="pergunta">Pergunta:</label>
+            <textarea 
+              className={styles.perguntaTextarea}
+              id="pergunta"
+              value={pergunta}
+              onChange={(e) => setPergunta(e.target.value)}
+              required
+            />
+          </div>
+          <div className={styles.inputGroup}>
+            <label htmlFor="resposta">Resposta:</label>
+            <textarea
+              className={styles.respostaTextarea}
+              id="resposta"
+              value={resposta}
+              onChange={(e) => setResposta(e.target.value)}
+              required
+            />
+          </div>
+          <button type="submit" className={styles.addButton}>Adicionar Pergunta</button>
+        </form>
+      </div>
     </div>
   );
 };
