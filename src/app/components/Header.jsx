@@ -1,5 +1,6 @@
 import style from '@/styles/header.module.css';
 import Image from 'next/image';
+import Link from 'next/link'; // Importando o componente Link do Next.js
 
 const Header = ({ onAddPergunta }) => {
   return (
@@ -12,14 +13,18 @@ const Header = ({ onAddPergunta }) => {
             width={100}
             height={100}
           />
-          <h1 className={style.logo}>Hbo+GPT 🤝 </h1>
+          <h1 className={style.logo}>Hbo+GPT 🤝</h1>
         </div>
 
         <div className={style.headerContentRight}>
           <span>Início</span>
           <button className={style.addCardButton} onClick={onAddPergunta}>Adicionar Card</button>
           <span>PDF para Texto</span>
-          <span>Texto para cards</span>
+          
+          {/* Atualização: "Texto para cards" usando Link sem o elemento <a> */}
+          <Link href="/TextoParaCards" className={style.linkItem}>
+            Texto para cards
+          </Link>
         </div>
       </div>
     </header>

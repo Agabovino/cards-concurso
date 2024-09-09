@@ -51,4 +51,16 @@
   .addCardButton:hover {
     color: #d1e1e1; /* Cor do texto quando o mouse passa sobre o botão */
   }
+
+  /* src/styles/header.module.css */
+.linkItem {
+  color: white; /* Cor do texto para combinar com o estilo existente */
+  cursor: pointer; /* Muda o cursor para uma mão ao passar por cima */
+  text-decoration: none; /* Remove o sublinhado */
+}
+
+.linkItem:hover {
+  color: #d1e1e1; /* Cor do texto quando o mouse passa sobre o link */
+}
+
   
