@@ -1,12 +1,12 @@
-/* CardPergunta.module.css */
+/*src\styles\CardPergunta.module.css*/
 .cardPergunta {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: calc(100vw - 4rem); /* Ajuste a largura conforme necessário */
-  max-width: 400px; /* Largura máxima para o card */
-  margin: 2rem auto; /* Margem automática para centralizar */
+  width: calc(100vw - 4rem);
+  max-width: 400px; 
+  margin: 2rem auto; 
   padding: 1rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: 0.3s;
@@ -16,9 +16,9 @@
 }
 
 .pergunta {
-  font-size: 1.5em; /* Tamanho fixo da fonte */
-  font-weight: bold; /* Peso fixo da fonte */
-  color: #000; /* Cor fixa da fonte */
+  font-size: 1.5em;
+  font-weight: bold; 
+  color: #000; 
   margin: 16px;
 }
 
@@ -60,7 +60,7 @@
   border-radius: 0.3rem;
   margin: 0.5rem;
   padding: 0.5rem;
-  background-color: #00ff40;
+  background-color: #32CD32;
   color: black;
   font-weight: bold;
 }
@@ -70,7 +70,7 @@
   border-radius: 0.3rem;
   margin: 0.5rem;
   padding: 0.5rem;
-  background-color: #ff4800;
+  background-color: #FF4500;
   color: white;
   font-weight: bold;
 }

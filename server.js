@@ -1,3 +1,4 @@
+// server.js
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
@@ -50,6 +51,32 @@ app.post('/api/perguntas', (req, res) => {
         return;
       }
       res.status(201).json(perguntaComID);
+    });
+  });
+});
+
+// Rota para atualizar uma pergunta existente
+app.put('/api/perguntas/:id', (req, res) => {
+  const id = parseInt(req.params.id, 10);
+  const updatedQuestion = req.body;
+
+  fs.readFile(path.join(__dirname, 'public', 'perguntas.json'), 'utf8', (err, data) => {
+    if (err) {
+      res.status(500).send('Erro ao ler o arquivo');
+      return;
+    }
+
+    let perguntas = JSON.parse(data);
+    perguntas = perguntas.map(p =>
+      p.id === id ? { ...p, ...updatedQuestion } : p
+    );
+
+    fs.writeFile(path.join(__dirname, 'public', 'perguntas.json'), JSON.stringify(perguntas, null, 2), 'utf8', (err) => {
+      if (err) {
+        res.status(500).send('Erro ao salvar o arquivo');
+        return;
+      }
+      res.status(200).json(updatedQuestion);
     });
   });
 });

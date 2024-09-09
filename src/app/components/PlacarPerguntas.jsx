@@ -1,6 +1,6 @@
 // src/app/components/PlacarPerguntas.jsx
 import React from 'react';
-import styles from '@/styles/PlacarPerguntas.module.css'; // Importando os estilos específicos
+import styles from '@/styles/PlacarPerguntas.module.css';
 
 const PlacarPerguntas = ({ acertos, erros, resetPlacar }) => {
   return (

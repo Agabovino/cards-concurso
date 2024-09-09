@@ -1,14 +1,13 @@
 /* src/styles/PlacarPerguntas.module.css */
 
 .scoreboard {
-    background-color: #f7f7f7;
-    border: 2px solid #ddd;
+    background-color: #fff;
     border-radius: 8px;
     padding: 20px;
     margin: 20px 0;
     width: 25rem;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
   
   .scoreboardTitle {
